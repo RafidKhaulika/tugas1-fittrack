@@ -33,4 +33,22 @@ public class Member {
         return this.jenisPaket;
     }
 
+    public void setNama(String nama) {
+        if (nama != null && !nama.trim().isEmpty()) {
+            this.nama = nama;
+        } else {
+            System.out.println("Penolakan: Nama member tidak boleh kosong atau hanya berisi spasi.");
+        }
+    }
+
+    public void setNoTelepon(String noTelepon) {
+        if (noTelepon != null
+                && noTelepon.startsWith(AWALAN_TELEPON)
+                && noTelepon.length() >= PANJANG_MIN_TELEPON) {
+            this.noTelepon = noTelepon;
+        } else {
+            System.out.println("Penolakan: Nomor telepon harus diawali angka 0 dan minimal 10 digit.");
+        }
+    }
+
 }
