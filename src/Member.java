@@ -51,4 +51,20 @@ public class Member {
         }
     }
 
+    public void setTanggalDaftar(String tanggalDaftar) {
+        if (tanggalDaftar != null && !tanggalDaftar.trim().isEmpty()) {
+            this.tanggalDaftar = tanggalDaftar;
+        } else {
+            System.out.println("Penolakan: Tanggal daftar tidak boleh kosong atau hanya berisi spasi.");
+        }
+    }
+
+    public void setJenisPaket(String jenisPaket) {
+        if (jenisPaket != null && (jenisPaket.equals(PAKET_BASIC) || jenisPaket.equals(PAKET_PREMIUM) || jenisPaket.equals(PAKET_VIP))) {
+            this.jenisPaket = jenisPaket;
+        } else {
+            System.out.println("Penolakan: Jenis paket harus Basic, Premium, atau VIP (penulisan harus persis).");
+        }
+    }
+
 }
