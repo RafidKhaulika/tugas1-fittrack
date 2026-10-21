@@ -17,6 +17,13 @@ public class Member {
     private String tanggalDaftar = DEFAULT_TANGGAL_DAFTAR;
     private String jenisPaket = DEFAULT_JENIS_PAKET;
 
+    public Member(String nama, String noTelepon, String tanggalDaftar, String jenisPaket) {
+        setNama(nama);
+        setNoTelepon(noTelepon);
+        setTanggalDaftar(tanggalDaftar);
+        setJenisPaket(jenisPaket);
+    }
+
     public String getNama() {
         return this.nama;
     }
