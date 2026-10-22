@@ -71,11 +71,22 @@ public class Member {
     }
 
     public void setJenisPaket(String jenisPaket) {
-        if (jenisPaket != null && (jenisPaket.equals(PAKET_BASIC) || jenisPaket.equals(PAKET_PREMIUM) || jenisPaket.equals(PAKET_VIP))) {
+        if (jenisPaket != null
+                && (jenisPaket.equals(PAKET_BASIC)
+                || jenisPaket.equals(PAKET_PREMIUM)
+                || jenisPaket.equals(PAKET_VIP))) {
             this.jenisPaket = jenisPaket;
         } else {
             System.out.println("Penolakan: Jenis paket harus Basic, Premium, atau VIP (penulisan harus persis).");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Nama           : " + this.nama + "\n"
+                + "No. Telepon    : " + this.noTelepon + "\n"
+                + "Tanggal Daftar : " + this.tanggalDaftar + "\n"
+                + "Jenis Paket    : " + this.jenisPaket;
     }
 
 }
