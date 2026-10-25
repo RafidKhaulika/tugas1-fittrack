@@ -1,4 +1,9 @@
-public class Member {
+/**
+ * Merepresentasikan satu member yang terdaftar di FitTrack.
+ * Class ini untuk menyimpan data pribadi member dan memastikan
+ * setiap perubahan data lolos validasi sebelum disimpan.
+ */
+public class Member{
 
     public static final int PANJANG_MIN_TELEPON = 10;
     public static final String AWALAN_TELEPON = "0";
@@ -17,76 +22,84 @@ public class Member {
     private String tanggalDaftar = DEFAULT_TANGGAL_DAFTAR;
     private String jenisPaket = DEFAULT_JENIS_PAKET;
 
-    public Member(String nama, String noTelepon, String tanggalDaftar, String jenisPaket) {
+    /**
+     * Membuat objek Member baru dengan seluruh atribut lengkap.
+     * Pengisian nilai dilakukan lewat setter agar tetap melalui validasi.
+     *
+     * @param nama untuk nama lengkap member
+     * @param noTelepon untuk nomor telepon aktif member
+     * @param tanggalDaftar untuk tanggal pertama kali member mendaftar
+     * @param jenisPaket untuk jenis paket keanggotaan seperti Basic, Premium, atau VIP
+     */
+    public Member(String nama, String noTelepon, String tanggalDaftar, String jenisPaket){
         setNama(nama);
         setNoTelepon(noTelepon);
         setTanggalDaftar(tanggalDaftar);
         setJenisPaket(jenisPaket);
     }
 
-    public Member(String nama, String noTelepon, String tanggalDaftar) {
+    /**
+     * Membuat objek Member baru tanpa menentukan jenis paket.
+     * Jenis paket otomatis diatur menjadi Basic.
+     *
+     * @param nama nama lengkap member
+     * @param noTelepon nomor telepon aktif member
+     * @param tanggalDaftar tanggal pertama kali member mendaftar
+     */
+    public Member(String nama, String noTelepon, String tanggalDaftar){
         this(nama, noTelepon, tanggalDaftar, PAKET_BASIC);
     }
 
-    public String getNama() {
+    public String getNama(){
         return this.nama;
     }
 
-    public String getNoTelepon() {
+    public String getNoTelepon(){
         return this.noTelepon;
     }
 
-    public String getTanggalDaftar() {
+    public String getTanggalDaftar(){
         return this.tanggalDaftar;
     }
 
-    public String getJenisPaket() {
+    public String getJenisPaket(){
         return this.jenisPaket;
     }
 
-    public void setNama(String nama) {
-        if (nama != null && !nama.trim().isEmpty()) {
+    public void setNama(String nama){
+        if(nama != null && !nama.trim().isEmpty()){
             this.nama = nama;
-        } else {
+        }else{
             System.out.println("Penolakan: Nama member tidak boleh kosong atau hanya berisi spasi.");
         }
     }
 
-    public void setNoTelepon(String noTelepon) {
-        if (noTelepon != null
-                && noTelepon.startsWith(AWALAN_TELEPON)
-                && noTelepon.length() >= PANJANG_MIN_TELEPON) {
+    public void setNoTelepon(String noTelepon){
+        if(noTelepon != null && noTelepon.startsWith(AWALAN_TELEPON) && noTelepon.length()>= PANJANG_MIN_TELEPON){
             this.noTelepon = noTelepon;
-        } else {
+        }else{
             System.out.println("Penolakan: Nomor telepon harus diawali angka 0 dan minimal 10 digit.");
         }
     }
 
-    public void setTanggalDaftar(String tanggalDaftar) {
-        if (tanggalDaftar != null && !tanggalDaftar.trim().isEmpty()) {
+    public void setTanggalDaftar(String tanggalDaftar){
+        if(tanggalDaftar != null && !tanggalDaftar.trim().isEmpty()){
             this.tanggalDaftar = tanggalDaftar;
-        } else {
+        }else{
             System.out.println("Penolakan: Tanggal daftar tidak boleh kosong atau hanya berisi spasi.");
         }
     }
 
-    public void setJenisPaket(String jenisPaket) {
-        if (jenisPaket != null
-                && (jenisPaket.equals(PAKET_BASIC)
-                || jenisPaket.equals(PAKET_PREMIUM)
-                || jenisPaket.equals(PAKET_VIP))) {
+    public void setJenisPaket(String jenisPaket){
+        if(jenisPaket != null && (jenisPaket.equals(PAKET_BASIC) || jenisPaket.equals(PAKET_PREMIUM) || jenisPaket.equals(PAKET_VIP))){
             this.jenisPaket = jenisPaket;
-        } else {
+        }else{
             System.out.println("Penolakan: Jenis paket harus Basic, Premium, atau VIP (penulisan harus persis).");
         }
     }
 
     @Override
-    public String toString() {
-        return "Nama           : " + this.nama + "\n"
-                + "No. Telepon    : " + this.noTelepon + "\n"
-                + "Tanggal Daftar : " + this.tanggalDaftar + "\n"
-                + "Jenis Paket    : " + this.jenisPaket;
+    public String toString(){
+        return "Nama           : " + this.nama + "\n" + "No. Telepon    : " + this.noTelepon + "\n" + "Tanggal Daftar : " + this.tanggalDaftar + "\n" + "Jenis Paket    : " + this.jenisPaket;
     }
-
 }
