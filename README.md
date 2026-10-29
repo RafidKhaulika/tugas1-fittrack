@@ -44,7 +44,7 @@ tugas1-fittrack/
 
 ## Prasyarat
 * **Versi JDK:** Java Development Kit (JDK) 21 dengan versi JDK 21.0.12.1.
-* **Alat yang Digunakan:** Terminal / Command Prompt untuk kompilasi dan eksekusi, serta Visual Studio Code sebagai editor kode.
+* **IDE yang Disarankan:** Visual Studio Code dengan Extension Pack for Java, program juga dapat dikompilasi dan dijalankan langsung lewat Terminal / Command Prompt.
 
 ## Cara Menjalankan Program
 ### 1. Melalui Command Line (Terminal / Command Prompt)
